@@ -20,7 +20,7 @@ ul {
     list-style-type: none;
 }
 
-.dropdown_container {
+.create--dropdown {
     position: relative;
     width: 100%;
 
@@ -70,7 +70,13 @@ ul {
     gap: 20px;
 }
 
-.sign_button {
+.button_space {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+
+.button {
     font-size: inherit;
     background: var(--text-color);
     color: var(--block-color);
@@ -78,6 +84,7 @@ ul {
     border-radius: 10px;
     padding: 10px 40px;
     font-weight: 600;
+    flex-grow: 1;
 
     &:hover {
         cursor: pointer;
