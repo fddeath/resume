@@ -1,3 +1,4 @@
+import data from '../../modules/start_config.json' with { type: 'json' };
 let current_step = 0;
 
 document.addEventListener('click', (e) => {
@@ -9,7 +10,7 @@ document.addEventListener('click', (e) => {
 
     // Button - next
 
-    if (button && e.target == button) {
+    if (button && e.target == button && current_step < data['step_length']) {
         let isset_step = false;
 
         button.className.split(' ').forEach(cls => {
@@ -65,15 +66,17 @@ document.addEventListener('click', (e) => {
         }
     }
 
-    // Title
+    // Sing
 
-    if (title && current_step > 0) {
+    if (title && description && current_step > 0) {
+        let text = false;
+        data['steps_info'].forEach(step => {
+            if (current_step == step['id']) {
+                text = step['text'];
+            }
+        })
         title.innerText = 'Шаг ' + current_step;
-    }
-
-    // Description
-
-    if (description && current_step > 0) {
-        description.innerText = current_step;
+        if (text) description.innerText = text;
+        else description.innerText = 'Null';
     }
 });

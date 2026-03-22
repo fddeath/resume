@@ -1,0 +1,13 @@
+{
+    "step_length": 5,
+    "steps_info": [
+        {
+            "id": 1,
+            "text": "test coplite"
+        },
+        {
+            "id": 2,
+            "text": "test coplite for step 2"
+        }
+    ]
+}
