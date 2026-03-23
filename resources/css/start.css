@@ -1,0 +1,111 @@
+.container {
+    border: 1px solid var(--block-color);
+    border-radius: 24px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form_info {
+    min-width: 400px;
+    padding: 20px;
+}
+
+.step {
+    display: flex;
+    gap: 14px;
+    flex-direction: column;
+}
+
+.input_title {
+    text-align: center;
+}
+
+.input_container {
+    display: flex;
+
+    input {
+        outline: none;
+        background: none;
+        border: none;
+        border-bottom: 1px solid var(--block-color);
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .input_file {
+        background: none;
+        border: 1px solid var(--block-color);
+        border-radius: 10px;
+        padding: 10px;
+        box-sizing: border-box;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    textarea{
+        outline: none;
+        resize: vertical;
+        background: none;
+        border: 1px solid var(--block-color);
+        border-radius: 10px;
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+.input_button {
+    background: none;
+    border: 1px solid var(--block-color);
+    border-radius: 5px;
+    padding: 5px 50px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.sign {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--block-color);
+    width: fit-content;
+    min-width: 400px;
+    border-radius: 20px;
+    padding: 20px;
+    gap: 20px;
+}
+
+.button_space {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.button {
+    font-size: inherit;
+    background: var(--text-color);
+    color: var(--block-color);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 40px;
+    font-weight: 600;
+    flex-grow: 1;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:active {
+        background-color: var(--button-color_active);
+    }
+
+    .button-text {
+        color: var(--block-color);
+    }
+}

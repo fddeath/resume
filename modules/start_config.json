@@ -1,13 +1,24 @@
 {
-    "step_length": 5,
     "steps_info": [
         {
             "id": 1,
-            "text": "test coplite"
+            "title": "Персональные данные",
+            "text": ""
         },
         {
             "id": 2,
-            "text": "test coplite for step 2"
+            "title": "Данные о навыках",
+            "text": ""
+        },
+        {
+            "id": 3,
+            "title": "Социальные сети",
+            "text": ""
+        },
+        {
+            "id": 4,
+            "title": "Проекты",
+            "text": ""
         }
     ]
 }
