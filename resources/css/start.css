@@ -1,3 +1,14 @@
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 .container {
     border: 1px solid var(--block-color);
     border-radius: 24px;
@@ -14,6 +25,12 @@
     display: flex;
     gap: 14px;
     flex-direction: column;
+    align-items: end;
+    min-height: 100%;
+
+    h3 {
+        width: 100%;
+    }
 }
 
 .input_title {
@@ -21,6 +38,7 @@
 }
 
 .input_container {
+    width: 100%;
     display: flex;
 
     input {
@@ -62,6 +80,7 @@
     border: 1px solid var(--block-color);
     border-radius: 5px;
     padding: 5px 50px;
+    width: fit-content;
 
     &:hover {
         cursor: pointer;
@@ -74,10 +93,22 @@
     align-items: center;
     background: var(--block-color);
     width: fit-content;
-    min-width: 400px;
+    min-width: 350px;
     border-radius: 20px;
     padding: 20px;
     gap: 20px;
+
+    .description {
+        box-sizing: border-box;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .main_description {
+            text-align: center;
+        }
+    }
 }
 
 .button_space {
@@ -107,5 +138,70 @@
 
     .button-text {
         color: var(--block-color);
+    }
+}
+
+.skills {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    scrollbar-width: none;
+}
+
+.skill {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.skills_percent {
+    box-sizing: border-box;
+    background: none;
+    border: 1px solid var(--block-color) !important;
+    border-radius: 10px;
+    min-width: 0;
+    flex-grow: 0;
+    width: 42px;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    &:hover {
+        cursor: text;
+    }
+}
+
+.sign_dd {
+    width: 100%;
+    button {
+        box-sizing: border-box;
+        width: 100%;
+        background: none;
+        border: 1px solid var(--block-color);
+        border-radius: 10px;
+        padding: 10px;
+        display: flex;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    ul {
+        background: var(--background-color);
+        border: 1px solid var(--block-color);
+        border-radius: 10px;
+        margin-top: 10px;
+        z-index: 10;
+
+        li {
+            padding: 10px;
+            &:not(:last-child) {
+                border-bottom: 1px solid var(--block-color);
+            }
+        }
     }
 }

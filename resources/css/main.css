@@ -20,53 +20,34 @@ ul {
     list-style-type: none;
 }
 
-.create--dropdown {
-    position: relative;
+.dropdown_container {
+    position: relative !important;
     width: 100%;
 
     .dropdown_button {
         width: 100%;
+        font-size: inherit;
     }
 
     .dropdown_list {
-        display: none;
-        position: absolute;
-        margin-top: 10px;
-        border-radius: 10px;
-        min-width: 100%;
+        width: 100%;
+        position: absolute !important;
         z-index: 10;
-        background: var(--text-color);
-        border-radius: 10px;
     }
 
     .dropdown_list-element {
-        text-align: center;
-        padding: 10px;
-        color: var(--block-color);
-
         &:hover {
-            background-color: var(--button-color_active);
             cursor: pointer;
-        }
-
-        &:first-child {
-            border-radius: 10px 10px 0 0;
-        }
-
-        &:last-child {
-            border-radius: 0 0 10px 10px;
         }
     }
 }
 
 .hidden {
     opacity: 0;
-    visibility: 0;
 }
 
 .visibility {
     opacity: 1;
-    visibility: 1;
 }
 
 .dNone {

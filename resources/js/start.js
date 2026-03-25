@@ -68,8 +68,11 @@ document.addEventListener('click', (e) => {
 
     if (button && current_step == data['steps_info'].length) {
         button.innerText = 'Готово';
-    } else if (button && current_step != data['steps_info'].length) {
+        if (e.target == button && button.id == 'ready') button.type = 'submit';
+        button.id = 'ready';
+    } else if (button && current_step != data['steps_info'].length && current_step != 0) {
         button.innerText = 'Далее';
+        button.id = '';
     }
 
     if (button_back && current_step < 2) {
