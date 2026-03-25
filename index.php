@@ -8,4 +8,5 @@ spl_autoload_register(function ($className) {
 });
 
 require_once __DIR__ . '/modules/functions.php';
-require_once 'resources/view/start.php';
+
+require_once 'routes/web.php';
