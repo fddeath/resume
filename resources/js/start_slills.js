@@ -31,7 +31,6 @@ document.addEventListener('click', (e) => {
                     name="skills-percent_` + id + `"
                     id="skills-percent_` + id + `"
                     placeholder="%"
-                    max="100"
                 >
             </div>`;
         

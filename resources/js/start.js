@@ -50,6 +50,7 @@ document.addEventListener('click', (e) => {
 
     if (button_back && e.target == button_back) {
         current_step--;
+        button.type = 'button';
         if (current_step > 0) {
             let old_step = '';
             button.className.split(' ').forEach(cls => {

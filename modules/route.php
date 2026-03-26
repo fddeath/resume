@@ -21,8 +21,7 @@ class Route
                 if (is_callable($route['handler'])) {
                     return $route['handler']();
                 } else {
-                    require_once __DIR__ . '/../resources/view/' . $route['handler'] . '.php';
-                    return;
+                    return require_once __DIR__ . '/../resources/view/' . $route['handler'] . '.php';
                 }
             }
         }

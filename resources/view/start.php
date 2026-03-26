@@ -23,9 +23,10 @@ if (file_exists(__DIR__ . '/../../modules/langs.json')) {
     <script type="module" src="resources/js/start.js" defer></script>
     <script type="module" src="resources/js/start_slills.js" defer></script>
     <script src="resources/js/dropdown.js" defer></script>
+    <script src="resources/js/start_loader.js" defer></script>
 </head>
     <body>
-        <form class="container" action="" method="post">
+        <form class="container" action="/start" method="POST" enctype="multipart/form-data">
 
             <div class="form_info dNone">
                 <div id="step_1" class="step dNone">
@@ -88,7 +89,6 @@ if (file_exists(__DIR__ . '/../../modules/langs.json')) {
                                 name="skill-percent_1"
                                 id="skill-percent_1"
                                 placeholder="%"
-                                max="100"
                             >
                         </div>
                     </div>
@@ -110,13 +110,13 @@ if (file_exists(__DIR__ . '/../../modules/langs.json')) {
                     <div class="input_container">
                         <input
                             type="text" 
-                            name="projects"
+                            name="project_1"
                             placeholder="URL"
                         >
                     </div>
                     <div class="input_container">
                         <textarea
-                            name="about_me"
+                            name="project-description_1"
                             cols="30"
                             placeholder="Описание проделанных работ"
                         ></textarea>

@@ -2,7 +2,7 @@
 
 namespace Controller;
 
-class layout
+class layoutController
 {
     public string $layout;
 
