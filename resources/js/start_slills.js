@@ -28,7 +28,7 @@ document.addEventListener('click', (e) => {
                 <input
                     class="skills_percent"
                     type="number"
-                    name="skills-percent_` + id + `"
+                    name="skill-percent_` + id + `"
                     id="skills-percent_` + id + `"
                     placeholder="%"
                 >

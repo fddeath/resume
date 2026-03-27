@@ -13,7 +13,7 @@ if (file_exists(__DIR__ . '/../../modules/langs.json')) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume</title>
+    <title>CloudSpace | Resume</title>
 
     <link rel="stylesheet" href="resources/css/vars.css">
     <link rel="stylesheet" href="resources/css/main.css">
@@ -24,6 +24,8 @@ if (file_exists(__DIR__ . '/../../modules/langs.json')) {
     <script type="module" src="resources/js/start_slills.js" defer></script>
     <script src="resources/js/dropdown.js" defer></script>
     <script src="resources/js/start_loader.js" defer></script>
+    <script src="resources/js/start_social.js" defer></script>
+    <script src="resources/js/start_project.js" defer></script>
 </head>
     <body>
         <form class="container" action="/start" method="POST" enctype="multipart/form-data">
@@ -99,11 +101,11 @@ if (file_exists(__DIR__ . '/../../modules/langs.json')) {
                     <div class="input_container">
                         <input
                             type="text" 
-                            name="social"
+                            name="social_1"
                             placeholder="URL"
                         >
                     </div>
-                    <button type="button" class="input_button">Add</button>
+                    <button id="add_social" type="button" class="input_button">Add</button>
                 </div>
                 <div id="step_4" class="step dNone">
                     <h3 class="input_title">Title</h3>
@@ -121,7 +123,7 @@ if (file_exists(__DIR__ . '/../../modules/langs.json')) {
                             placeholder="Описание проделанных работ"
                         ></textarea>
                     </div>
-                    <button type="button" class="input_button">Add</button>
+                    <button id="add_project" type="button" class="input_button">Add</button>
                 </div>
             </div>
 

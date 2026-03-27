@@ -4,7 +4,8 @@ class Route
 {
     private static array $routes = [];
 
-    public static function add(string $path, string $method, $handler) {
+    public static function add(string $path, string $method, $handler)
+    {
         self::$routes[] = [
             'path' => $path,
             'method' => $method,
@@ -12,7 +13,8 @@ class Route
         ];
     }
 
-    public static function display() {
+    public static function display()
+    {
         $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         $method = $_SERVER['REQUEST_METHOD'];
         
