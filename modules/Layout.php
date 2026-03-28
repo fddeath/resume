@@ -2,12 +2,12 @@
 
 class Layout
 {
-    private string $layout;
-    private array $content_area;
+    public string $layout;
+    public array $content_area;
 
     public function __construct(string $name)
     {
-        $path = $_SERVER['DOCUMENT_ROOT'] . '/resources/layout/' . $name . '.php';
+        $path = $_SERVER['DOCUMENT_ROOT'] . '/resources/layout/' . $name . '.html';
 
         $this->layout = file_get_contents($path);
         $last_pos = 0;
@@ -32,20 +32,23 @@ class Layout
     public function insert(array $content)
     {
         foreach ($content as $key => $value) {
-            $this->content_area[$key]['content'] = $value;
+            if (isset($this->content_area[$key])) $this->content_area[$key]['content'] = $value;
         }
-    }
 
-    public function __destruct()
-    {
         $this->content_area = array_reverse($this->content_area);
         $result = $this->layout;
 
+        // unique key
+
+        // foreach ($this->content_area as $value) {
+        //     $post_1 = $value['post_1'] - 1;
+        //     $post_2 = $value['post_2'] + 1;
+        //     $content = $value['content'];
+        //     $result = substr_replace($result, $content, $post_1, ($post_2 - $post_1));
+        // }
+
         foreach ($this->content_area as $key => $value) {
-            $post_1 = $value['post_1'] - 1;
-            $post_2 = $value['post_2'] + 1;
-            $content = $value['content'];
-            $result = substr_replace($result, $content, $post_1, ($post_2 - $post_1));
+            $result = str_replace('[' . $key . ']', $value['content'], $result);
         }
 
         echo $result;

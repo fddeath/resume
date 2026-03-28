@@ -1,0 +1,95 @@
+.container {
+    position: relative;
+    width: 80%;
+    height: fit-content;
+    display: flex;
+    gap: 20px;
+    padding: 100px 40px 0 40px;
+    box-sizing: border-box;
+}
+
+.bg {
+    position: absolute;
+    width: 100%;
+    top: 25px;
+    left: 0;
+    right: 0;
+    height: 225px;
+    border: 4px solid var(--block-color);
+    border-radius: 20px;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.avatar {
+    display: flex;
+    width: 300px;
+    aspect-ratio: 1 / 1;
+    border: 4px solid var(--block-color);
+    border-radius: 50%;
+}
+
+.skills_container {
+    display: flex;
+}
+
+.skill {
+    position: relative;
+    display: flex;
+    width: fit-content;
+    display: flex;
+    width: 120px;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+
+    svg {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        inset: 0 0 0 0;
+    }
+
+    .skill_name {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        inset: 0 0 0 0;
+        font-weight: 600;
+    }
+
+    .skill_percent {
+        position: absolute;
+        left: 50%;
+        bottom: 5px;
+        translate: -50% -50%;
+    }
+}
+
+.card_desc {
+    align-items: center;
+}
+
+.user_desc {
+    padding-top: 180px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.content_container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.p10 {
+    padding-left: 10px;
+}

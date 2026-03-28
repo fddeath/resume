@@ -7,6 +7,8 @@ class startController
     public static function create() {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') redirect('/');
 
+        $avatar = '';
+
         if (isset($_FILES['img']) && $_FILES['img']['error'] === UPLOAD_ERR_OK) {
             $file = $_FILES['img'];
             $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
