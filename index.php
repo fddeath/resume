@@ -9,6 +9,6 @@ spl_autoload_register(function ($className) {
 
 require_once __DIR__ . '/modules/functions.php';
 
-if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/config/user.json')) $user = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/config/user.json'), true);;
+if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/config/user.json')) $user = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/config/user.json'), true);
 
 require_once 'routes/web.php';

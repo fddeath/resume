@@ -4,11 +4,9 @@ Route::add('/', 'GET', function () {
     global $user;
     $layout = new Layout('resume');
 
-    $social_media = '<ul>';
-    foreach ($user['social_media'] as $value) {
-        $name = renderLink($value);
-        
-        $social_media .= "<li><a href=\"{$value}\" target=\"_blank\" rel=\"noopener noreferrer\">$name</a></li>";
+    $social_media = '<ul class="social_media">';
+    foreach ($user['social_media'] as $link) {
+        $social_media .= '<li><a class="social" href="' . $link . '" target="_blank" rel="noopener noreferrer">' . linkSVG($link) . '</a></li>';
     }
     $social_media .= '</ul>';
 

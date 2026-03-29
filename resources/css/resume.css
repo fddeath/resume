@@ -26,23 +26,43 @@
     font-weight: 600;
 }
 
+.card {
+    display: flex;
+    align-items: center;
+    gap: 10px !important;
+    position: relative;
+    width: min-content;
+    box-sizing: border-box;
+}
+
 .avatar {
     display: flex;
     width: 300px;
     aspect-ratio: 1 / 1;
     border: 4px solid var(--block-color);
     border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.social_media {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .skills_container {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .skill {
     position: relative;
     display: flex;
     width: fit-content;
-    display: flex;
     width: 120px;
     aspect-ratio: 1 / 1;
     overflow: hidden;
@@ -69,11 +89,8 @@
         left: 50%;
         bottom: 5px;
         translate: -50% -50%;
+        font-weight: 600;
     }
-}
-
-.card_desc {
-    align-items: center;
 }
 
 .user_desc {
@@ -92,4 +109,21 @@
 
 .p10 {
     padding-left: 10px;
+}
+
+.progress_bar {
+    stroke: var(--progress_bar-color);
+}
+
+.progress_bar-fill {
+    stroke: var(--progress_bar_fill-color);
+}
+
+.social {
+    display: flex;
+    width: 40px;
+    fill: var(--social_media-fill);
+    padding: 5px;
+    border: 2px solid var(--social_media-bg);
+    border-radius: 10px;
 }
