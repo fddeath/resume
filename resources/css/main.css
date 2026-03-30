@@ -19,6 +19,15 @@ ul {
     list-style-type: none;
 }
 
+a {
+    text-decoration: none;
+    transition: all 0.2s ease-in;
+
+    &:hover {
+        color: var(--color-hover);
+    }
+}
+
 .dropdown_container {
     position: relative !important;
     width: 100%;

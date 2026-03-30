@@ -32,7 +32,7 @@ class Layout
     public function insert(array $content)
     {
         foreach ($content as $key => $value) {
-            if (isset($this->content_area[$key])) $this->content_area[$key]['content'] = $value;
+            if (!empty($value)) $this->content_area[$key]['content'] = $value;
         }
 
         $this->content_area = array_reverse($this->content_area);

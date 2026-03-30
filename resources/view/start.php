@@ -40,7 +40,7 @@ if (file_exists(__DIR__ . '/../../modules/langs.json')) {
                             placeholder="Имя"
                         >
                     </div>
-                    <div class="input_container">
+                    <div class="input_container file">
                         <input
                             class="dNone"
                             type="file" 
@@ -48,6 +48,15 @@ if (file_exists(__DIR__ . '/../../modules/langs.json')) {
                             id="img"
                         >
                         <label for="img" class="input_file">Фото профиля</label>
+                    </div>
+                    <div class="input_container file">
+                        <input
+                            class="dNone"
+                            type="file" 
+                            name="bg"
+                            id="bg"
+                        >
+                        <label for="bg" class="input_file">Фон профиля</label>
                     </div>
                     <div class="input_container">
                         <textarea

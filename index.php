@@ -11,4 +11,5 @@ require_once __DIR__ . '/modules/functions.php';
 
 if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/config/user.json')) $user = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/config/user.json'), true);
 
-require_once 'routes/web.php';
+if (is_dir(__DIR__ . '/config')) require_once 'routes/web.php';
+else require_once 'routes/start.php';

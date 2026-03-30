@@ -4,7 +4,7 @@
     height: fit-content;
     display: flex;
     gap: 20px;
-    padding: 100px 40px 0 40px;
+    padding: 100px 40px 40px 40px;
     box-sizing: border-box;
 }
 
@@ -24,6 +24,10 @@
     flex-direction: column;
     font-size: 24px;
     font-weight: 600;
+    background-image: url('../../config/imgs/background.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .card {
@@ -54,6 +58,15 @@
     flex-wrap: wrap;
 }
 
+.social {
+    display: flex;
+    width: 32px;
+    fill: var(--social_media-fill);
+    padding: 8px;
+    border: 2px solid var(--social_media-bg);
+    border-radius: 10px;
+}
+
 .skills_container {
     display: flex;
     flex-wrap: wrap;
@@ -62,7 +75,6 @@
 .skill {
     position: relative;
     display: flex;
-    width: fit-content;
     width: 120px;
     aspect-ratio: 1 / 1;
     overflow: hidden;
@@ -93,6 +105,12 @@
     }
 }
 
+.project {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
 .user_desc {
     padding-top: 180px;
     width: 100%;
@@ -119,15 +137,6 @@
     stroke: var(--progress_bar_fill-color);
 }
 
-.social {
-    display: flex;
-    width: 40px;
-    fill: var(--social_media-fill);
-    padding: 5px;
-    border: 2px solid var(--social_media-bg);
-    border-radius: 10px;
-}
-
 @media (max-width: 992px) {
     .container {
         flex-direction: column;
@@ -137,5 +146,13 @@
 
     .user_desc {
         padding: 0;
+    }
+
+    .skills_container {
+        justify-content: center;
+
+        h2 {
+            display: none;
+        }
     }
 }
