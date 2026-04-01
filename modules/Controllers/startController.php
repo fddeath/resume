@@ -7,22 +7,6 @@ class startController
     public static function create() {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') redirect('/');
 
-        $avatar = '';
-
-        if (isset($_FILES['img']) && $_FILES['img']['error'] === UPLOAD_ERR_OK) {
-            $file = $_FILES['img'];
-            $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
-            $allowed = [
-                'png',
-                'jpeg',
-                'jpg'
-            ];
-            $name = 'avatar' . '.' . 'jpeg';
-            $path = $_SERVER['DOCUMENT_ROOT'] . '/config/imgs/';
-
-            if (in_array($ext, $allowed)) move_uploaded_file($file['tmp_name'], $path . $name);
-        }
-
         $result = [];
 
         if (!empty($_POST['name'])) $result['name'] = $_POST['name'];
@@ -44,13 +28,43 @@ class startController
             }
         }
 
-        $result = json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        if (!isset($result['name']) && !isset($result['experience']) && !isset($result['skills'])) redirect('/');
 
+        $result = json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
         $dir = $_SERVER['DOCUMENT_ROOT'] . '/config';
 
-        if (!is_dir($dir)) mkdir($dir, 0777, true);
+        if (!is_dir($dir)) mkdir($dir . '/imgs', 0777, true);
 
         file_put_contents($_SERVER['DOCUMENT_ROOT'] . '/config/' . 'user.json', $result);
+
+        if (isset($_FILES['img']) && $_FILES['img']['error'] === UPLOAD_ERR_OK) {
+            $file = $_FILES['img'];
+            $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+            $allowed = [
+                'png',
+                'jpeg',
+                'jpg'
+            ];
+            $name = 'avatar' . '.' . 'jpeg';
+            $path = $_SERVER['DOCUMENT_ROOT'] . '/config/imgs/';
+
+            if (in_array($ext, $allowed)) move_uploaded_file($file['tmp_name'], $path . $name);
+        }
+
+        if (isset($_FILES['bg']) && $_FILES['bg']['error'] === UPLOAD_ERR_OK) {
+            $file = $_FILES['bg'];
+            $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+            $allowed = [
+                'png',
+                'jpeg',
+                'jpg'
+            ];
+            $name = 'bg' . '.' . 'jpeg';
+            $path = $_SERVER['DOCUMENT_ROOT'] . '/config/imgs/';
+
+            if (in_array($ext, $allowed)) move_uploaded_file($file['tmp_name'], $path . $name);
+        }
+
         redirect('/');
     }
 }

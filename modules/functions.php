@@ -46,13 +46,13 @@ function renderSkill(string $skill, int $percent) {
     <circle class='progress_bar' cx='60' cy='60' r='$r' 
             fill='none' 
             stroke='white' 
-            stroke-width='9' 
+            stroke-width='10' 
             stroke-dasharray='$len $circumference' 
             transform='rotate($offset 60 60)' />
     <circle class='progress_bar-fill' cx='60' cy='60' r='$r' 
             fill='none' 
             stroke='lime' 
-            stroke-width='11' 
+            stroke-width='12' 
             stroke-dasharray='$len_percent $circumference_percent' 
             transform='rotate($offset 60 60)' />
     ";
