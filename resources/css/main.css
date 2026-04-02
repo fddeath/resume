@@ -40,7 +40,7 @@ a {
     .dropdown_list {
         width: 100%;
         position: absolute !important;
-        z-index: 10;
+        z-index: 1000;
     }
 
     .dropdown_list-element {

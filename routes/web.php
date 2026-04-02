@@ -5,6 +5,10 @@ Route::add('/', 'GET', function () {
     $layout = new Layout('resume');
     $content = '';
 
+    if (isset($user['experience'])) {
+        $experience = 'Опыт работы: ' . $user['experience'];
+    }
+
     if (isset($user['social_media'])) {
         $social_media = '<ul class="social_media">';
         foreach ($user['social_media'] as $link) {
@@ -50,11 +54,11 @@ Route::add('/', 'GET', function () {
     }
 
     $layout->insert([
-        'title' => $user['name'],
-        'name' => $user['name'],
-        'experience' => $user['experience'],
-        'social_media' => $social_media,
-        'content' => $content
+        'title' => $user['name'] ?? '',
+        'name' => $user['name'] ?? '',
+        'experience' => $experience ?? '',
+        'social_media' => $social_media  ?? '',
+        'content' => $content  ?? ''
     ]);
 });
 

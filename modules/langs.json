@@ -7,5 +7,26 @@
     },
     "php": {
         "title": "PHP"
+    },
+    "js": {
+        "title": "JavaScript"
+    },
+    "go": {
+        "title": "Go"
+    },
+    "sql": {
+        "title": "SQL"
+    },
+    "c": {
+        "title": "C"
+    },
+    "c++": {
+        "title": "C++"
+    },
+    "c#": {
+        "title": "C#"
+    },
+    "asm": {
+        "title": "Assembler"
     }
 }

@@ -30,10 +30,17 @@ input[type="number"]::-webkit-inner-spin-button {
     flex-direction: column;
     align-items: end;
     min-height: 100%;
+    max-height: 60vh;
+    overflow: scroll;
+    scrollbar-width: none;
 
     h3 {
         width: 100%;
     }
+}
+
+#step_2 {
+    min-height: 400px;
 }
 
 .input_title {
@@ -74,6 +81,8 @@ input[type="number"]::-webkit-inner-spin-button {
         border-radius: 10px;
         padding: 10px;
         width: 100%;
+        max-height: 200px;
+        overflow-y: auto;
         box-sizing: border-box;
     }
 }
@@ -110,6 +119,10 @@ input[type="number"]::-webkit-inner-spin-button {
 
         .main_description {
             text-align: center;
+        }
+
+        li {
+            padding-left: 10px;
         }
     }
 }
@@ -149,7 +162,6 @@ input[type="number"]::-webkit-inner-spin-button {
     flex-direction: column;
     gap: 10px;
     width: 100%;
-    scrollbar-width: none;
 }
 
 .skill {
@@ -178,7 +190,9 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .sign_dd {
+    position: relative;
     width: 100%;
+
     button {
         box-sizing: border-box;
         width: 100%;
@@ -199,6 +213,9 @@ input[type="number"]::-webkit-inner-spin-button {
         border-radius: 10px;
         margin-top: 10px;
         z-index: 10;
+        max-height: 210px;
+        overflow: scroll;
+        scrollbar-width: none;
 
         li {
             padding: 10px;

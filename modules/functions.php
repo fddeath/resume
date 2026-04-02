@@ -2,6 +2,7 @@
 
 function redirect(string $uri) {
     return header('Location: ' . $uri);
+    exit;
 }
 
 function dd(...$vars) {

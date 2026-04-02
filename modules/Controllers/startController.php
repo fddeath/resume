@@ -17,9 +17,12 @@ class startController
             if (str_starts_with($key, 'social')) {
                 if (!empty($value)) $result['social_media'][] = $value;
             }
+
             if (str_starts_with($key, 'skill_')) {
-                if (!empty($value)) $result['skills'][$value] = $_POST['skill-percent_' . $key[-1]];
+                $percent = $_POST['skill-percent_' . $key[-1]];
+                if (!empty($value) && $percent <= 100 && $percent >= 1) $result['skills'][$value] = $percent;
             }
+
             if (str_starts_with($key, 'project_')) {
                 if (!empty($value)) $result['projects'][] = [
                     'link' => $value,
@@ -28,41 +31,41 @@ class startController
             }
         }
 
-        if (!isset($result['name']) && !isset($result['experience']) && !isset($result['skills'])) redirect('/');
+        if (isset($result['name']) && isset($result['experience']) && isset($result['skills'])) {
+            $result = json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+            $dir = $_SERVER['DOCUMENT_ROOT'] . '/config';
 
-        $result = json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-        $dir = $_SERVER['DOCUMENT_ROOT'] . '/config';
+            if (!is_dir($dir)) mkdir($dir . '/imgs', 0777, true);
 
-        if (!is_dir($dir)) mkdir($dir . '/imgs', 0777, true);
+            file_put_contents($_SERVER['DOCUMENT_ROOT'] . '/config/' . 'user.json', $result);
 
-        file_put_contents($_SERVER['DOCUMENT_ROOT'] . '/config/' . 'user.json', $result);
+            if (isset($_FILES['img']) && $_FILES['img']['error'] === UPLOAD_ERR_OK) {
+                $file = $_FILES['img'];
+                $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+                $allowed = [
+                    'png',
+                    'jpeg',
+                    'jpg'
+                ];
+                $name = 'avatar' . '.' . 'jpeg';
+                $path = $_SERVER['DOCUMENT_ROOT'] . '/config/imgs/';
 
-        if (isset($_FILES['img']) && $_FILES['img']['error'] === UPLOAD_ERR_OK) {
-            $file = $_FILES['img'];
-            $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
-            $allowed = [
-                'png',
-                'jpeg',
-                'jpg'
-            ];
-            $name = 'avatar' . '.' . 'jpeg';
-            $path = $_SERVER['DOCUMENT_ROOT'] . '/config/imgs/';
+                if (in_array($ext, $allowed)) move_uploaded_file($file['tmp_name'], $path . $name);
+            }
 
-            if (in_array($ext, $allowed)) move_uploaded_file($file['tmp_name'], $path . $name);
-        }
+            if (isset($_FILES['bg']) && $_FILES['bg']['error'] === UPLOAD_ERR_OK) {
+                $file = $_FILES['bg'];
+                $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+                $allowed = [
+                    'png',
+                    'jpeg',
+                    'jpg'
+                ];
+                $name = 'bg' . '.' . 'jpeg';
+                $path = $_SERVER['DOCUMENT_ROOT'] . '/config/imgs/';
 
-        if (isset($_FILES['bg']) && $_FILES['bg']['error'] === UPLOAD_ERR_OK) {
-            $file = $_FILES['bg'];
-            $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
-            $allowed = [
-                'png',
-                'jpeg',
-                'jpg'
-            ];
-            $name = 'bg' . '.' . 'jpeg';
-            $path = $_SERVER['DOCUMENT_ROOT'] . '/config/imgs/';
-
-            if (in_array($ext, $allowed)) move_uploaded_file($file['tmp_name'], $path . $name);
+                if (in_array($ext, $allowed)) move_uploaded_file($file['tmp_name'], $path . $name);
+            }
         }
 
         redirect('/');
