@@ -11,7 +11,7 @@ class startController
 
         if (!empty($_POST['name']) && mb_strlen($_POST['name']) < 20 && mb_strlen($_POST['name']) > 3) $result['name'] = $_POST['name'];
         if (!empty($_POST['about_me']) && mb_strlen($_POST['about_me']) < 2000) $result['about_me'] = $_POST['about_me'];
-        if (!empty($_POST['experience'] && mb_strlen($_POST['experience']) < 50)) $result['experience'] = $_POST['experience'];
+        if (!empty($_POST['experience']) && mb_strlen($_POST['experience']) < 50) $result['experience'] = $_POST['experience'];
 
         foreach ($_POST as $key => $value) {
             if (str_starts_with($key, 'social')) {
