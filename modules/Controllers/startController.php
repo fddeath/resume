@@ -9,13 +9,13 @@ class startController
 
         $result = [];
 
-        if (!empty($_POST['name'])) $result['name'] = $_POST['name'];
-        if (!empty($_POST['about_me'])) $result['about_me'] = $_POST['about_me'];
-        if (!empty($_POST['experience'])) $result['experience'] = $_POST['experience'];
+        if (!empty($_POST['name']) && mb_strlen($_POST['name']) < 20 && mb_strlen($_POST['name']) > 3) $result['name'] = $_POST['name'];
+        if (!empty($_POST['about_me']) && mb_strlen($_POST['about_me']) < 2000) $result['about_me'] = $_POST['about_me'];
+        if (!empty($_POST['experience'] && mb_strlen($_POST['experience']) < 50)) $result['experience'] = $_POST['experience'];
 
         foreach ($_POST as $key => $value) {
             if (str_starts_with($key, 'social')) {
-                if (!empty($value)) $result['social_media'][] = $value;
+                if (!empty($value) && mb_strlen($value) < 255) $result['social_media'][] = $value;
             }
 
             if (str_starts_with($key, 'skill_')) {
@@ -24,7 +24,7 @@ class startController
             }
 
             if (str_starts_with($key, 'project_')) {
-                if (!empty($value)) $result['projects'][] = [
+                if (!empty($value) && mb_strlen($_POST['project-description_' . $key[-1]]) < 255) $result['projects'][] = [
                     'link' => $value,
                     'desc' => $_POST['project-description_' . $key[-1]]
                 ];

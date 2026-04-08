@@ -20,14 +20,12 @@ function linkSVG(string $uri) {
 
     if (filter_var($uri, FILTER_VALIDATE_URL)) {
         $host = parse_url($uri)['host'];
-        $site = false;
         
         foreach ($social_media as $key => $value) {
-            if (str_contains($host, $key)) $site = $key;
+            if ($key == $host || 'www.' . $key == $host) return $value['svg'];
         }
 
-        if ($site) return $social_media[$site]['svg'];
-        else return $social_media['__link']['svg'];
+        return $social_media['__link']['svg'];
     }
 }
 
