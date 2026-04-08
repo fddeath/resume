@@ -5,7 +5,7 @@ namespace Controllers;
 class startController
 {
     public static function create() {
-        if ($_SERVER['REQUEST_METHOD'] !== 'POST') redirect('/');
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') return header('Location: /');
 
         $result = [];
 
@@ -68,6 +68,6 @@ class startController
             }
         }
 
-        redirect('/');
+        return header('Location: /');
     }
 }
