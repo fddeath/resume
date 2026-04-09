@@ -1,5 +1,7 @@
 <?php
 
+if (!extension_loaded('mbstring')) exit('Not Found PHP modul: mbstring');
+
 spl_autoload_register(function ($className) {
     $file = __DIR__ . '/modules/' . str_replace('\\', '/', $className) . '.php';
     if (file_exists($file)) {
